@@ -40,15 +40,20 @@ Demand side ($N_{D}$ demand offers):
 
 The above conditions can be combined to formulate the *social welfare maximisation* problem:
 
-$$\begin{align}
+```math
+\begin{align}
 \underset{\mathbf{y}^{G}, \mathbf{y}^{D}}{\max} \quad &\sum\limits_{i=1}^{N_{D}}\lambda_{i}^{D}y_{i}^{D} - \sum\limits_{j=1}^{N_{G}}\lambda_{j}^{G}y_{j}^{G} \\
 \text{subject to} \quad &\sum\limits_{j=1}^{N_{G}}y_{j}^{G} - \sum\limits_{i=1}^{N_{D}} y_{i}^{D} = 0 \\
 &0 \leq y_{i}^{D} \leq P_{i}^{D},\ i= 1, \dots, N_{D} \\
 &0 \leq y_{i}^{G} \leq P_{i}^{G},\ i= 1, \dots, N_{G}
-\end{align}$$
+\end{align}
+```
+
 Reformulating as a *minimisation problem*
-$$\begin{align}
+```math
+\begin{align}
 \underset{\mathbf{y}^{G}, \mathbf{y}^{D}}{\min} \quad &\sum\limits_{j=1}^{N_{G}}\lambda_{j}^{G}y_{j}^{G} - \sum\limits_{i=1}^{N_{D}}\lambda_{i}^{D}y_{i}^{D} 
-\end{align}$$
+\end{align}
+```
 Subject to the same constraints as above. We have now formulated a standard constrained **Linear Program.**
 
