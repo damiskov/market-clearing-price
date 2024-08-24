@@ -21,7 +21,7 @@ A **market-clearing price** is the price of a good or service at which the q
 All offers in the market are formulated in terms of a quantity $P$ and a price $\lambda$.
 
 Supply side ($N_{G}$ supply offers):
-- Set of offers: $\mathcal{L}_{G} = \left\{ G_{j}, \ j = 1, \dots, N_{G} \right\}$
+- Set of offers: ```mathcal{L}_{G} = \left\{ G_{j}, \ j = 1, \dots, N_{G} \right\}```
 - Maximum quantity for offer $G_{j}:$ $P_{j}^{G}$
 - Price for offer $G_{j}$: $\lambda_{j}^{G}$
 
