@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-This is an implementation of a solver and visualiser for the market clearing price of a day-ahead energy market. The programme can take two csv files of the following format:
+This is an implementation of a solver and visualiser for the market clearing price of a day-ahead energy market. The programme will take a csv of the following format
 
-| Name | ID  | Quantity [MWh] | Price [€/MWh] |
-| ---- | --- | -------------- | ------------- |
-| ...  | ... | ...            | ...           |
+| Company | Supply/Demand | ID  | Quantity [MWh] | Price [€/MWh] |
+| ------- | ------------- | --- | -------------- | ------------- |
+| ...     |               | ... | ...            | ...           |
 
-for both supply and demand. They must be uploaded in  the following format: `data/name/name_supply.csv` and `data/name/name_demand.csv`. The market clearing price will be solved, as well as ... .
+it must be uploaded in the following format: `data/name.csv`. The market clearing price will be solved, as well as ... .
 
 The results will be stored as csv files in a directory `/solutions/name` and visualised (see examples in `/plots/name`). As is, the programme will run based on an example auction created Pierre Pinson for the [course](http://pierrepinson.com/index.php/teaching/) *31761 - Renewables in Energy Markets* at the Technical University of Denmark.
 
@@ -55,5 +55,38 @@ Reformulating as a *minimisation problem*
 \underset{\mathbf{y}^{G}, \mathbf{y}^{D}}{\min} \quad &\sum\limits_{j=1}^{N_{G}}\lambda_{j}^{G}y_{j}^{G} - \sum\limits_{i=1}^{N_{D}}\lambda_{i}^{D}y_{i}^{D} 
 \end{align}
 ```
-Subject to the same constraints as above. We have now formulated a standard constrained **Linear Program.**
+Subject to the same constraints as above. We have now formulated a standard constrained **Linear Program:**
 
+```math
+\begin{align}
+\underset{\mathbf{y}}{\max} \quad &\mathbf{c}^{\top}\mathbf{y} \\
+\text{subject to} \quad &\mathbf{A}\mathbf{y} \leq \mathbf{b} \\
+&\mathbf{A}_{\text{eq}}\mathbf{y} = \mathbf{b}_{\text{eq}}\\
+& \mathbf{y} \geq 0
+\end{align}
+```
+
+#### Vectors and Matrices in the Objective Function
+Where the vectors $\mathbf{y}$ of optimisation variables and $\mathbf{c}$ of weights in the objective function are constructed as
+```math
+\begin{align}
+\mathbf{y} &= \begin{bmatrix} \mathbf{y}_{G} \\ \mathbf{y}_{D} \end{bmatrix} = \begin{bmatrix} y_{1}^{G} \\ y_{2}^{G} \\ \vdots \\ y_{N_{G}}^{G} \\ y_{1}^{D} \\ y_{2}^{D}\\ \vdots \\ y_{N_{D}}^{D} \end{bmatrix}, \quad \mathbf{y} \in \mathbb{R}^{N_{G}+N_{D}}
+\end{align}
+```
+and 
+```math
+\begin{align}
+\mathbf{c} &= \begin{bmatrix} \mathbf{\lambda}_{G} \\ -\mathbf{\lambda}_{D} \end{bmatrix} = \begin{bmatrix} \lambda_{1}^{G} \\ \lambda_{2}^{G} \\ \vdots \\ \lambda_{N_{G}}^{G} \\ \lambda_{1}^{D} \\ \lambda_{2}^{D}\\ \vdots \\ \lambda_{N_{D}}^{D} \end{bmatrix}, \quad \mathbf{c} \in \mathbb{R}^{N_{G}+N_{D}}
+\end{align}
+```
+
+#### Vectors and Matrices Defining Constraints
+
+For the equality constraint (balance of generation and consumption)
+$$
+\mathbf{A}_{\text{eq}} = \left[1, \dots, 1, -1, \dots, -1\right] \in \mathbb{R}^{N_{G}+N_{D}}, \quad \mathbf{b}_{\text{eq}} = 0
+$$
+For the inequality constraint (ensuring generation and consumption levels are within limits)
+$$\mathbf{A} = I \in \mathbb{R}^{\left( N_{G}+N_{D} \right) \times \left( N_{G}+N_{D} \right)}$$
+and 
+$$b = \begin{bmatrix} P_{1}^{G} \\ \vdots \\ P_{N_{G}}^{G} \\ P_{1}^{D} \\ \vdots \\ P_{N_{D}}^{D} \end{bmatrix} \in \mathbb{R}^{N_{G}+N_{D}}$$
