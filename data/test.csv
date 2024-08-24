@@ -1,4 +1,4 @@
-Company,Supply/Demand,ID,PG_j (MWh),λG_j (€/MWh)
+Company,Supply/Demand,ID,Quantity (MWh),Price (€/MWh)
 RT R© Supply,Supply,G1,120,0
 WeTrustInWind,Supply,G2,50,0
 BlueHydro,Supply,G3,200,15

@@ -66,7 +66,7 @@ Subject to the same constraints as above. We have now formulated a standard cons
 
 ```math
 \begin{align}
-\underset{\mathbf{y}}{\max} \quad &\mathbf{c}^{\top}\mathbf{y} \\
+\underset{\mathbf{y}}{\min} \quad &\mathbf{c}^{\top}\mathbf{y} \\
 \text{subject to} \quad &\mathbf{A}\mathbf{y} \leq \mathbf{b} \\
 &\mathbf{A}_{\text{eq}}\mathbf{y} = \mathbf{b}_{\text{eq}}\\
 & \mathbf{y} \geq 0
@@ -83,7 +83,7 @@ Where the vectors $\mathbf{y}$ of optimisation variables and $\mathbf{c}$ of wei
 and 
 ```math
 \begin{align}
-\mathbf{c} &= \begin{bmatrix} \mathbf{\lambda}_{G} \\ -\mathbf{\lambda}_{D} \end{bmatrix} = \begin{bmatrix} \lambda_{1}^{G} \\ \lambda_{2}^{G} \\ \vdots \\ \lambda_{N_{G}}^{G} \\ \lambda_{1}^{D} \\ \lambda_{2}^{D}\\ \vdots \\ \lambda_{N_{D}}^{D} \end{bmatrix}, \quad \mathbf{c} \in \mathbb{R}^{N_{G}+N_{D}}
+\mathbf{c} &= \begin{bmatrix} \mathbf{\lambda}_{G} \\ -\mathbf{\lambda}_{D} \end{bmatrix} = \begin{bmatrix} \lambda_{1}^{G} \\ \lambda_{2}^{G} \\ \vdots \\ \lambda_{N_{G}}^{G} \\ -\lambda_{1}^{D} \\ -\lambda_{2}^{D}\\ \vdots \\ -\lambda_{N_{D}}^{D} \end{bmatrix}, \quad \mathbf{c} \in \mathbb{R}^{N_{G}+N_{D}}
 \end{align}
 ```
 
