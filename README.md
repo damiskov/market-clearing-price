@@ -83,10 +83,16 @@ and
 #### Vectors and Matrices Defining Constraints
 
 For the equality constraint (balance of generation and consumption)
-$$
+
+```math
 \mathbf{A}_{\text{eq}} = \left[1, \dots, 1, -1, \dots, -1\right] \in \mathbb{R}^{N_{G}+N_{D}}, \quad \mathbf{b}_{\text{eq}} = 0
-$$
+```
+
 For the inequality constraint (ensuring generation and consumption levels are within limits)
-$$\mathbf{A} = I \in \mathbb{R}^{\left( N_{G}+N_{D} \right) \times \left( N_{G}+N_{D} \right)}$$
+```math
+\mathbf{A} = I \in \mathbb{R}^{\left( N_{G}+N_{D} \right) \times \left( N_{G}+N_{D} \right)}
+```
 and 
-$$b = \begin{bmatrix} P_{1}^{G} \\ \vdots \\ P_{N_{G}}^{G} \\ P_{1}^{D} \\ \vdots \\ P_{N_{D}}^{D} \end{bmatrix} \in \mathbb{R}^{N_{G}+N_{D}}$$
+```math
+b = \begin{bmatrix} P_{1}^{G} \\ \vdots \\ P_{N_{G}}^{G} \\ P_{1}^{D} \\ \vdots \\ P_{N_{D}}^{D} \end{bmatrix} \in \mathbb{R}^{N_{G}+N_{D}}
+```
