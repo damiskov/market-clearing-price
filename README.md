@@ -6,7 +6,7 @@ This is an implementation of a solver and visualiser for the market clearing pri
 
 | Company | Supply/Demand | ID  | Quantity [MWh] | Price [€/MWh] |
 | ------- | ------------- | --- | -------------- | ------------- |
-| ...     |               | ... | ...            | ...           |
+| ...     | ...           | ... | ...            | ...           |
 
 it must be uploaded in the following format: `data/name.csv`. The market clearing price will be solved, as well as ... .
 

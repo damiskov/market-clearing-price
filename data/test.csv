@@ -1,0 +1,28 @@
+Company,Supply/Demand,ID,PG_j (MWh),λG_j (€/MWh)
+RT R© Supply,Supply,G1,120,0
+WeTrustInWind,Supply,G2,50,0
+BlueHydro,Supply,G3,200,15
+RT R© Supply,Supply,G4,400,30
+KøbenhavnCHP,Supply,G5,60,32.5
+KøbenhavnCHP,Supply,G6,50,34
+KøbenhavnCHP,Supply,G7,60,36
+DirtyPower,Supply,G8,100,37.5
+DirtyPower,Supply,G9,70,39
+DirtyPower,Supply,G10,50,40
+RT R© Supply,Supply,G11,70,60
+RT R© Supply,Supply,G12,45,70
+SafePeak,Supply,G13,50,100
+SafePeak,Supply,G14,60,150
+SafePeak,Supply,G15,50,200
+CleanRetail,Demand,D1,250,200
+El4You,Demand,D2,300,110
+EVcharge,Demand,D3,120,100
+QualiWatt,Demand,D4,80,90
+IntelliWatt,Demand,D5,40,85
+El4You,Demand,D6,70,75
+CleanRetail,Demand,D7,60,65
+IntelliWatt,Demand,D8,45,40
+QualiWatt,Demand,D9,30,38
+IntelliWatt,Demand,D10,35,31
+CleanRetail,Demand,D11,25,24
+El4You,Demand,D12,10,16
