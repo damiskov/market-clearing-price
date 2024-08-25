@@ -83,7 +83,7 @@ Where the vectors $\mathbf{y}$ of optimisation variables and $\mathbf{c}$ of wei
 and 
 ```math
 \begin{align}
-\mathbf{c} &= \begin{bmatrix} \mathbf{\lambda}_{G} \\ -\mathbf{\lambda}_{D} \end{bmatrix} = \begin{bmatrix} \lambda_{1}^{G} \\ \lambda_{2}^{G} \\ \vdots \\ \lambda_{N_{G}}^{G} \\ -\lambda_{1}^{D} \\ -\lambda_{2}^{D}\\ \vdots \\ -\lambda_{N_{D}}^{D} \end{bmatrix}, \quad \mathbf{c} \in \mathbb{R}^{N_{G}+N_{D}}
+\mathbf{c} &= \begin{bmatrix} \mathbf{\lambda}_{G} \\ -\mathbf{\lambda}_{D} \end{bmatrix} = \left\[\begin{matrix} \lambda_{1}^{G} \\ \lambda_{2}^{G} \\ \vdots \\ \lambda_{N_{G}}^{G} \\ -\lambda_{1}^{D} \\ -\lambda_{2}^{D}\\ \vdots \\ -\lambda_{N_{D}}^{D} \end{matrix}\right], \quad \mathbf{c} \in \mathbb{R}^{N_{G}+N_{D}}
 \end{align}
 ```
 
