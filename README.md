@@ -10,7 +10,7 @@ This is an implementation of a solver and visualiser for the market clearing pri
 
 it must be uploaded in the following format: `data/name.csv`. The market clearing price will be solved, as well as ... .
 
-The results will be stored as csv files in a directory `/solutions/name` and visualised (see examples in `/plots/name`). As is, the programme will run based on an example auction created Pierre Pinson for the [course](http://pierrepinson.com/index.php/teaching/) *31761 - Renewables in Energy Markets* at the Technical University of Denmark.
+The results will be stored as csv files in a directory `/solutions/name` and visualised (see examples in `/plots/name`). As is, the programme will run based on an example auction created by Pierre Pinson for the [course](http://pierrepinson.com/index.php/teaching/) *31761 - Renewables in Energy Markets* at the Technical University of Denmark.
 
 ## Problem Background
 
