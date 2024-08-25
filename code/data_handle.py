@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+import os 
 
 def load_auction(path):
     df = pd.read_csv(path)
@@ -13,9 +13,9 @@ def load_auction(path):
     return df
 
 
-def save_fig(name, path='/Users/davidmiles-skov/Desktop/Academics/Projects/market-clearing-price/plots'):
-    fname = '/Users/davidmiles-skov/Desktop/Academics/Projects/market-clearing-price/plots/'+name+'.png'
-    plt.savefig(fname, dpi=300)
+def save_fig(name, figname):
+    path = f'{os.getcwd()}/plots/{name}/{figname}.png'
+    plt.savefig(path, dpi=300)
 
 def save_results():
     return

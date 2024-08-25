@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from data_handle import save_fig
 
-def gen_supply_demand(df_supply, df_demand, save=False):
+def gen_supply_demand(df_supply, df_demand,name, save):
     quantity_supply, quantity_demand = df_supply['Quantity'].to_numpy(), df_demand['Quantity'].to_numpy()
     price_supply, price_demand = df_supply['Price'].to_numpy(), df_demand['Price'].to_numpy()
     
@@ -36,14 +36,14 @@ def gen_supply_demand(df_supply, df_demand, save=False):
     ax.grid(True)
     ax.legend(loc='upper right')
     if save:
-        save_fig('supply_demand')
+        save_fig(name, 'supply_demand')
 
     return fig, ax
 
 def plot_social_welfare():
     return
 
-def gen_accepted_vs_offered(df,type,result,N_G,save):
+def gen_accepted_vs_offered(df,type,result,N_G,name,save):
     
     # Set up
     
@@ -81,7 +81,8 @@ def gen_accepted_vs_offered(df,type,result,N_G,save):
     plt.legend(loc='upper right')
 
     if save:
-        save_fig(type)
+        figname = f'{type}_allocation'
+        save_fig(name, figname)
 
     return fig, ax
         
@@ -89,21 +90,21 @@ def gen_accepted_vs_offered(df,type,result,N_G,save):
 
 
 
-def plot_accepted_vs_offered(df_supply, df_demand, result, N_G, N_D,save=False):
+def plot_accepted_vs_offered(df_supply, df_demand, result, N_G,name,save=False):
 
     # For supply
 
-    fig_supply, ax_supply = gen_accepted_vs_offered(df_supply, 'Supply',result, N_G, save)
+    fig_supply, ax_supply = gen_accepted_vs_offered(df_supply, 'Supply',result, N_G, name,save)
     plt.show()
 
     # For demand
-    fig_demand, ax_demand = gen_accepted_vs_offered(df_demand, 'Demand',result, N_G, save)
+    fig_demand, ax_demand = gen_accepted_vs_offered(df_demand, 'Demand',result, N_G,name, save)
     plt.show()
 
 
 
 
 
-def plot_supply_demand(df_supply, df_demand, save=False):
-    fig, ax = gen_supply_demand(df_supply, df_demand, save=False)
+def plot_supply_demand(df_supply, df_demand,name, save):
+    fig, ax = gen_supply_demand(df_supply, df_demand,name, save)
     plt.show()

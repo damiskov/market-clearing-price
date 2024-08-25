@@ -25,8 +25,8 @@ def main():
     
     # Solving
 
-    result = solve_MCP(df, N_G,N_D)
-    save = True
+    result = solve_MCP(df,N_G,N_D)
+    save = True # Saving on first run
     print(f"""
        y:
           {result.x}
@@ -34,8 +34,8 @@ def main():
     """)
 
     # Making plots
-    # plot_supply_demand(df_supply, df_demand, save)
-    # plot_accepted_vs_offered(df_supply, df_demand,result, N_G, N_D,save)
+    plot_supply_demand(df_supply, df_demand, name,save)
+    plot_accepted_vs_offered(df_supply, df_demand,result, N_G, name,save)
     # plot_social_welfare()
 
 
