@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from data_handle import save_fig
 
-def plot_supply_demand(df_supply, df_demand, save=False):
+def gen_supply_demand(df_supply, df_demand, save=False):
     quantity_supply, quantity_demand = df_supply['Quantity'].to_numpy(), df_demand['Quantity'].to_numpy()
     price_supply, price_demand = df_supply['Price'].to_numpy(), df_demand['Price'].to_numpy()
     
@@ -33,9 +33,9 @@ def plot_supply_demand(df_supply, df_demand, save=False):
     ax.grid(True)
     ax.legend(loc='upper right')
     if save:
-        save_fig(fig)
+        save_fig('supply_demand')
 
-    return fig,ax
+    return fig, ax
 
 def plot_social_welfare():
     return
@@ -47,7 +47,7 @@ def gen_accepted_vs_offered(df,type,result,N_G,save):
     labels = df['ID'] 
     
     if type=='Supply':
-        colours = ['lightblue', 'midnightblue']
+        colors = ['lightblue', 'midnightblue']
         actual =  result.x[:N_G]
         offer = df[df['Supply/Demand']=='Supply']['Quantity'].to_numpy()
     else:
@@ -78,7 +78,7 @@ def gen_accepted_vs_offered(df,type,result,N_G,save):
     plt.legend(loc='upper right')
 
     if save:
-        save_fig(fig)
+        save_fig(type)
 
     return fig, ax
         
@@ -86,18 +86,21 @@ def gen_accepted_vs_offered(df,type,result,N_G,save):
 
 
 
-def plot_accepted_vs_offered(df_supply, df_demand, N_G, N_D,save=False):
+def plot_accepted_vs_offered(df_supply, df_demand, result, N_G, N_D,save=False):
 
     # For supply
 
-    fig_supply, ax_supply = gen_accepted_vs_offered_help(df_supply, 'Supply', N_G, save)
+    fig_supply, ax_supply = gen_accepted_vs_offered(df_supply, 'Supply',result, N_G, save)
     plt.show()
 
     # For demand
-    fig_demand, ax_demand = gen_accepted_vs_offered(df_demand, 'Demand', N_G, save)
+    fig_demand, ax_demand = gen_accepted_vs_offered(df_demand, 'Demand',result, N_G, save)
     plt.show()
 
 
 
 
 
+def plot_supply_demand(df_supply, df_demand, save=False):
+    fig, ax = gen_supply_demand(df_supply, df_demand, save=False)
+    plt.show()

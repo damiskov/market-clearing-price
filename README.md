@@ -8,14 +8,13 @@ This is an implementation of a solver and visualiser for the market clearing pri
 | ------- | ------------- | --- | -------------- | ------------- |
 | ...     | ...           | ... | ...            | ...           |
 
-it must be uploaded in the following format: `data/name.csv`. The market clearing price will be solved, as well as ... .
+it must be uploaded in the following format: `data/name.csv`. The market clearing price will be solved, as well as allocated quantities for both supply and demand.
 
-The results will be stored as csv files in a directory `/solutions/name` and visualised (see examples in `/plots/name`). As is, the programme will run based on an example auction created by Pierre Pinson for the [course](http://pierrepinson.com/index.php/teaching/) *31761 - Renewables in Energy Markets* at the Technical University of Denmark.
+The results will be stored as csv files in a directory `/solutions/name/results.csv` and visualised (see examples in `/plots/name/plot.png`). As is, the programme will run based on an example auction created by Pierre Pinson for the [course](http://pierrepinson.com/index.php/teaching/) *31761 - Renewables in Energy Markets* at the Technical University of Denmark.
 
 ## Problem Background
 
 A **market-clearing price** is the price of a good or service at which the quantity supplied equals the quantity demanded, also called the equilibrium price. In the context of the day-ahead energy market, this is the price at which market supply, dictated by generators, is equal to market demand (dictated by retailers, large consumers, aggregators etc).
-
 ### Inputs
 
 All offers in the market are formulated in terms of a quantity $P$ and a price $\lambda$.
