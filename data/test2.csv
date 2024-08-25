@@ -1,0 +1,9 @@
+Company,Supply/Demand,ID,Quantity (MWh),Price (€/MWh)
+ShinyPower,Supply,G3,32,0
+RoskildeCHP,Supply,G4,25,42
+FlexiGas,Supply,G1,15,75
+CleanCharge,Demand,D2,23,78
+WeLovePower,Demand,D1,35,65
+ElRetail,Demand,D4,38,46
+IntelliWat,Demand,D6,16,32
+JyskeEl,Demand,D3,312,10
