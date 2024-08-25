@@ -9,10 +9,13 @@ def gen_supply_demand(df_supply, df_demand, save=False):
     
     # Setting up demand data
 
-    x_demand = np.cumsum(quantity_demand)[::-1]
+    x_demand = np.cumsum(quantity_demand)[::-1] 
     x_demand = np.append(x_demand[0], x_demand)
+    x_demand = np.append(x_demand, np.array([0]))
+    
     y_demand = price_demand[::-1]
     y_demand = np.append(np.array([0]), y_demand)
+    y_demand = np.append(y_demand, np.array(y_demand[-1]))
 
     # Setting supply data
 
@@ -23,8 +26,8 @@ def gen_supply_demand(df_supply, df_demand, save=False):
     fig, ax = plt.subplots()
     fig.figsize=(10, 6)
 
-    ax.step(x_supply, y_supply, where='post', label='Supply', color='cornflowerblue', linewidth=2)
-    ax.step(x_demand, y_demand, where='post', label='Demand', color='lightcoral', linewidth=2)
+    ax.step(x_supply, y_supply, where='post', label='Supply', color='cornflowerblue', linewidth=2, marker='.')
+    ax.step(x_demand, y_demand, where='post', label='Demand', color='lightcoral', linewidth=2, marker='.')
 
     # labels and title
     ax.set_xlabel('Energy [MWh]')
