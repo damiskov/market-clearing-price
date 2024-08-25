@@ -1,6 +1,5 @@
 import numpy as np
 from scipy.optimize import linprog
-import pandas as pd
 
 def solve_MCP(df, N_G, N_D):
     supply_price = df[df['Supply/Demand']=='Supply']['Price'].to_numpy()

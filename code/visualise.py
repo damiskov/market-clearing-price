@@ -108,3 +108,11 @@ def plot_accepted_vs_offered(df_supply, df_demand, result, N_G,name,save=False):
 def plot_supply_demand(df_supply, df_demand,name, save):
     fig, ax = gen_supply_demand(df_supply, df_demand,name, save)
     plt.show()
+
+def scatter_df(df, type):
+    x,y = df["Quantity"].to_numpy(),df["Price"].to_numpy()
+    fig, ax = plt.subplots()
+    ax.scatter(x,y)
+    ax.set_xlabel("Quantity (MWh)")
+    ax.set_ylabel("Price (€/MWh)")
+    plt.show()

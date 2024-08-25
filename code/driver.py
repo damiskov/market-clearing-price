@@ -1,11 +1,7 @@
-import numpy as np
-import pandas as pd
 import os
-import matplotlib.pyplot as plt
-from scipy.optimize import linprog
 from solver import solve_MCP
 from  data_handle import load_auction, save_results
-from visualise import plot_accepted_vs_offered, plot_supply_demand, plot_social_welfare
+from visualise import plot_accepted_vs_offered, plot_supply_demand
 
 def main():
     path = os.getcwd()
@@ -22,17 +18,18 @@ def main():
     if not os.path.isdir(f'{path}/plots/{name}'):
         os.mkdir(f'{path}/plots/{name}')
    
-    
     # Solving
 
     result = solve_MCP(df,N_G,N_D)
     save = True # Saving on first run
     print(f"""
-       y:
+        y:
           {result.x}
 
+        MCP: {result.eqlin["marginals"][0]}
+ 
     """)
-
+    
     # Making plots
     plot_supply_demand(df_supply, df_demand, name,save)
     plot_accepted_vs_offered(df_supply, df_demand,result, N_G, name,save)
@@ -40,10 +37,7 @@ def main():
 
 
     # save results
-    supply_allocations = {'ID': df_supply["ID"].to_numpy(), 'Allocated':result.x[:N_G]}
-    demand_allocations = {'ID': df_demand["ID"].to_numpy(), 'Allocated':result.x[N_G:]}
-    df_supply_allocation = pd.DataFrame.from_dict(supply_allocations)
-    df_demand_allocation = pd.DataFrame.from_dict(demand_allocations)
+    save_results(df_supply, df_demand, result, name,N_G)
 
     
 
